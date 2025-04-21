@@ -34,25 +34,25 @@ function compress
     # 解压文件
     switch $file
         case "*.tar.gz"
-            tar -xzf $file -C $name
+            tar -xzf $file -C ../  # 解压到上一级目录
         case "*.tar.bz2"
-            tar -xjf $file -C $name
+            tar -xjf $file -C ../  # 解压到上一级目录
         case "*.tar.xz"
-            tar -xJf $file -C $name
+            tar -xJf $file -C ../  # 解压到上一级目录
         case "*.zip"
-            unzip -q $file -d $name
+            unzip -q $file -d ../  # 解压到上一级目录
         case "*.gz"
-            gunzip -c $file > $name/(basename $file .gz)
+            gunzip -c $file > ../(basename $file .gz)  # 解压到上一级目录
         case "*.bz2"
-            bunzip2 -c $file > $name/(basename $file .bz2)
+            bunzip2 -c $file > ../(basename $file .bz2)  # 解压到上一级目录
         case "*.xz"
-            unxz -c $file > $name/(basename $file .xz)
+            unxz -c $file > ../(basename $file .xz)  # 解压到上一级目录
         case "*.7z"
-            7z x $file -o$name
+            7z x $file -o../  # 解压到上一级目录
         case "*.rar"
-            unrar x $file $name/
+            unrar x $file ../  # 解压到上一级目录
         case "*.tar"
-            tar -xf $file -C $name
+            tar -xf $file -C ../  # 解压到上一级目录
         case '*'
             echo "Unsupported file type: $file"
             return 1
