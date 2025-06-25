@@ -18,21 +18,17 @@ if status --is-interactive
     set -gx OPENAI_API_KEY https://mapi.fduer.com/api/v1
     set -gx NVBOARD_HOME /home/mingzhenjia/ysyx-workbench/nvboard
     set -gx NEMU_HOME /home/mingzhenjia/ysyx-workbench/nemu
-    # 设置 NVM_DIR
-    set -gx NVM_DIR ~/.nvm
-    # 禁用 nvm 切换版本时的输出
-    set -gx NVM_NO_OUTPUT 1
+    set -gx AM_HOME /home/mingzhenjia/ysyx-workbench/abstract-machine
+    
+    set -x GTK_IM_MODULE ibus
+    set -x QT_IM_MODULE ibus
+    set -x XMODIFIERS @im=ibus
+    set -x IM_MODULE ibus
+    #设置wezterm
+    set -gx WEZTERM_CONFIG_FILE ~/.config/wezterm/wezterm.lua
+    set -gx WEZTERM_CONFIG_DIR ~/.config/wezterm/
 
-    # 使用 bass 加载 nvm.sh
-    bass source $NVM_DIR/nvm.sh --no-use
 
-    # 定义 nvm 函数
-    function nvm
-        bass source $NVM_DIR/nvm.sh --no-use ';' nvm $argv
-    end
-
-    # 默认启用 nvm 的默认版本（关键！）
-    bass source $NVM_DIR/nvm.sh ';' nvm use default
 
 
 
@@ -44,6 +40,9 @@ if status --is-interactive
     alias nemu="cd ~/ysyx-workbench/nemu"
     alias sdb="cd ~/ysyx-workbench/nemu/src/monitor/sdb/"
     alias func="cd ~/.config/fish/functions/"
+    alias surfer="~/surfer_linux/surfer"
+    alias sv2v="/home/mingzhenjia/Downloads/sv2v-Linux/sv2v-Linux/sv2v"
+
 end
 
 
